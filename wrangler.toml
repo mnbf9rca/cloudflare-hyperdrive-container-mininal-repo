@@ -1,0 +1,30 @@
+# Minimal wrangler.toml for Hyperdrive DNS issue reproduction
+name = "hyperdrive-dns-test"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Durable Objects binding for container
+[[durable_objects.bindings]]
+name = "BACKEND"
+class_name = "HyperdriveTestBackend"
+
+# Container configuration
+[[containers]]
+class_name = "HyperdriveTestBackend"
+image = "./Dockerfile"
+max_instances = 1
+
+# SQLite migrations for Durable Objects
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["HyperdriveTestBackend"]
+
+# Hyperdrive binding - Using staging Hyperdrive
+[[hyperdrive]]
+binding = "HYPERDRIVE"
+id = "cde9a77a217b44c185b6488683cdcea9"
+
+# Enable observability for logging
+[observability]
+enabled = true

@@ -1,0 +1,19 @@
+{
+  "name": "hyperdrive-dns-test",
+  "version": "1.0.0",
+  "description": "Minimal reproduction of Hyperdrive DNS issue in containers",
+  "main": "src/index.ts",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "tail": "wrangler tail"
+  },
+  "dependencies": {
+    "@cloudflare/containers": "0.0.25"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250810.0",
+    "typescript": "^5.9.2",
+    "wrangler": "^4.28.1"
+  }
+}
